@@ -16,6 +16,10 @@ async function handleSubmit(event) {
         .then(res => res.json())
         .then(function(res) {
             console.log(res)
+            console.log("score tag:", res.score_tag)
+            console.log("subjectivity:", res.subjectivity)
+            console.log("confidence:", res.confidence)
+            console.log("irony:", res.irony)
             document.getElementById('results').innerHTML = res
         })
     } else {

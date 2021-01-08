@@ -41,10 +41,8 @@ const lang = "auto"; //will automatically detect the language of the text, and t
 
 //Post route, receives data from client, then uses fetch to get analysis from 3rd party API, then sends analysis data to client.
 app.post('/test2', function (req, res) {
-    console.log("req:", req.body, typeof(req.body))
-    //BELOW TO BE CHANGED TO DATA FROM req.body
-    const test = "https://time.com/5927756/donald-trump-republicans-capitol-riot/"
-    const path = `${sentimentEndpoint}?key=${apiKey}&lang=${lang}&url=${req.body}`
+    const body = JSON.parse(req.body);
+    const path = `${sentimentEndpoint}?key=${apiKey}&lang=${lang}&url=${body}`
     fetch(path, {
         method: "POST",
     })
@@ -61,8 +59,6 @@ app.post('/test', function (req, res) {
 })
 
 
-
-//make api call to meaning cloud
 
 
 
