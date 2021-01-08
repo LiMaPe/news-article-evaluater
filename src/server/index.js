@@ -1,9 +1,9 @@
 //Require and config dotenv. Config assigns the content of .env file to process.env.
 require("dotenv").config();
 
-//Define the env variables. process.env has the keys and values as defined in the .env file.
+//Define the post variable  
 const port = process.env.PORT
-const apiKey =  process.env.API_KEY;
+
 
 //Require express and set up an instance of app
 const fetch = require('node-fetch');
@@ -29,25 +29,29 @@ app.listen(port, () =>
   console.log(`NEWS-app listening on port ${port}`),
 );
 
-var path = require('path')
-const mockAPIResponse = require('./mockAPI.js')
-
-console.log(__dirname)
-
+//Get the webpage 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    res.sendFile('dist/index.html');
 })
 
-app.post('/test2', function (req, res) {
-    console.log("req:", req.body)
+//Define variables used in fetch call to MeaningCloud API
+const sentimentEndpoint = "https://api.meaningcloud.com/sentiment-2.1";
+const apiKey =  process.env.API_KEY;
+const lang = "auto"; //will automatically detect the language of the text, and try to find a model with the name you entered in the model parameter and the language detected in the text.
 
-    fetch('https://api.mocki.io/v1/b043df5a')
+//Post route, receives data from client, then uses fetch to get analysis from 3rd party API, then sends analysis data to client.
+app.post('/test2', function (req, res) {
+    console.log("req:", req.body, typeof(req.body))
+    //BELOW TO BE CHANGED TO DATA FROM req.body
+    const test = "https://time.com/5927756/donald-trump-republicans-capitol-riot/"
+    const path = `${sentimentEndpoint}?key=${apiKey}&lang=${lang}&url=${req.body}`
+    fetch(path, {
+        method: "POST",
+    })
     .then(response => response.json())
     .then(data => {
         res.send(data)
     });
-    
-
 })
 
 //Add a GET route that returns respons from mockAPI
