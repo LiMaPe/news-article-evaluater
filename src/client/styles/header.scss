@@ -1,5 +1,41 @@
 header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "icon" "heading" "col";
     justify-content: space-between;
     padding: 10px 40px;
+    color: #a5b8cc;
+    height: 20vh;
+}
+
+.icon {
+    font-size: 4em;
+    grid-area: "icon";
+    color: #645c72;
+    padding: 0.2em;
+}
+
+.header__wrapper {
+    grid-area: "heading";
+    display: flex;
+    flex-direction: column;
+    padding: 3em 1em 1em 1em;
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header__head {
+    padding: 0 0.5vw 1vw 0.5vw;
+    color: #b63a4e;
+    text-align: center;
+    width: 100%;
+}
+
+.header__sub {
+ padding: 0 0.5vw 0 0.5vw;
+ text-align: center;
+ width: 100%;
 }

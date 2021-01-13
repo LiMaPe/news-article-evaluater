@@ -1,0 +1,50 @@
+.card__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 1;
+  }
+  
+  .card {
+    height: 28vh;
+    width: 30vw;
+    perspective: 500px;
+    margin: 1vw;
+    position: relative;
+  }
+  
+  .card__page {
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    color: #6399cf;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: space-around;
+    text-align: justify;
+    padding: 1vw;
+    transition: all 850ms ease;
+    backface-visibility: hidden;
+  }
+  
+  .card__page--first {
+    background-color: rgb(141, 185, 38);
+  }
+  
+  .card__page--second {
+    background-color: rgba(14, 25, 54, 1);
+    transform: rotateY(180deg);
+  }
+  
+  .card:hover {
+    .card__page--first {
+      transform: rotateY(-180deg);
+    }
+  
+    .card__page--second {
+      transform: rotateY(0);
+    }
+  }

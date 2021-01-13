@@ -2,31 +2,73 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>Article Break Down</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
+            <i class="far fa-newspaper icon"></i>
+            <article class="header__wrapper">
+                <h1 class="header__head">Article Break</h1>
+                <h6 class="header__sub">An article analysis tool</h6>
+            </article>
         </header>
 
         <main>
-            <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+            <section class="intro">
+                <p class="intro__bread">
+                    If you are tired of negative news or want to find out whether the article you just read is ironic or subjective this is the 
+                    answer! Welcome to Article Break Down, a web tool that allows you to run Natural Language Processing on articles or blogs found 
+                    on other websites by just a click. 
+                    <br> <br>To Get your Article Break Down analysis find an article or blog, copy the link, then past it in the field below. Click the 
+                    button and your result are shown below. 
+                </p>
+            </section>
+          
+
+            <section class="form">
+                <form class="user__form" onsubmit="return Client.handleSubmit(event)">
+                    <input class="user__input" id="name" type="text" name="input" value="" placeholder="http://..">
+                    <input class="btn" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             <section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section class="results--before results--after">
+                <div class="results_wrapper results--visable">
+                    <strong>Form Results:</strong>
+                    <div>
+                        <article class="card">
+                            <div class="card__page card__page--first">
+                                <h4 id="subjectivity"></h4>
+                            </div>
+                            <div class="card__page card__page--second">
+                                <h4>Subjectivity</h4>
+                                <p>Text text</p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__page card__page--first">
+                                <h4 id="irony"></h4>
+                            </div>
+                            <div class="card__page card__page--second">
+                                <h4>Irony</h4>
+                                <p>Text text</p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__page card__page--first">
+                                <h4 id="polarity"></h4>
+                            </div>
+                            <div class="card__page card__page--second">
+                                <h4>Polarity</h4>
+                                <p>Text text</p>
+                            </div>
+                        </article>
+                    </div>
+            </div>
             </section>
         </main>
 
