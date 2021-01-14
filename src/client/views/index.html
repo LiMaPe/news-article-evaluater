@@ -34,42 +34,36 @@
                     <input class="user__input" id="name" type="text" name="input" value="" placeholder="http://..">
                     <input class="btn" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
-            <section>
-
-            <section class="results--before results--after">
-                <div class="results_wrapper results--visable">
-                    <strong>Form Results:</strong>
-                    <div>
-                        <article class="card">
-                            <div class="card__page card__page--first">
-                                <h4 id="subjectivity"></h4>
-                            </div>
-                            <div class="card__page card__page--second">
-                                <h4>Subjectivity</h4>
-                                <p>Text text</p>
-                            </div>
-                        </article>
-                        <article class="card">
-                            <div class="card__page card__page--first">
-                                <h4 id="irony"></h4>
-                            </div>
-                            <div class="card__page card__page--second">
-                                <h4>Irony</h4>
-                                <p>Text text</p>
-                            </div>
-                        </article>
-                        <article class="card">
-                            <div class="card__page card__page--first">
-                                <h4 id="polarity"></h4>
-                            </div>
-                            <div class="card__page card__page--second">
-                                <h4>Polarity</h4>
-                                <p>Text text</p>
-                            </div>
-                        </article>
-                    </div>
-            </div>
             </section>
+
+            
+            <section class="results">
+                <article class="results__wrapper" id="">
+                    <h6 class="results__head" id="">
+                        without sentiment
+                    </h6>
+                    <p class="results__bread" id=""> 
+                        The result indicates the polarity found (or not found) in the text.
+                    </p>
+                </article>
+                <article class="results__wrapper" id="">
+                    <h6 class="results__head" id="">
+                        SUBJECTIVE
+                    </h6>
+                    <p class="results__bread" id=""> 
+                        The text has subjective marks.
+                    </p>
+                </article>
+                <article class="results__wrapper" id="">
+                    <h6 class="results__head" id="">
+                        NONIRONIC
+                    </h6>
+                    <p class="results__bread" id=""> 
+                        The text does not have ironic marks.
+                    </p>
+                </article>
+            </section>
+    
         </main>
 
         <footer>

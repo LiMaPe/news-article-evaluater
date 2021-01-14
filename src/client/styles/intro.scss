@@ -12,32 +12,3 @@
     width: 90vw;
     margin-bottom: 1em;
 }
-
-  
-  .user__input {
-    border-radius: 8px;
-  }
-  
-  input.user__input, textarea {
-    background: #a5b8cc;
-    border: 2px solid rgb(192, 205, 219);
-    font: inherit;
-  }
-  
-  input.user__input, textarea:focus {
-    color: whitesmoke;
-    text-indent: 10px;
-  }
-  
-  input {
-    &:focus {
-      color: whitesmoke;
-      text-indent: 10px;
-    }
-  
-    &.user__input::placeholder {
-      color: whitesmoke;
-      opacity: 1;
-      text-indent: 10px;
-    }
-  }

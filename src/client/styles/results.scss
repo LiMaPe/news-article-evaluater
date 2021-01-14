@@ -1,21 +1,24 @@
-
-.results--before {
-    width: 100vw;
-    background-image: url("https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?cs=srgb&dl=pexels-bess-hamiti-36487.jpg&fm=jpg");
-    background-color: #070A13;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-
+.results {
+    color: whitesmoke;
+    display: flex;
+    margin-top: 1em;
+}
+   
+.results__wrapper {
+    background-color:#6d869f;
+    margin: 1em;
+    height: auto;
+    width: 30vw;
+    border-radius: 8px;
 }
 
-.results_wrapper {
-    visibility: hidden;
+.results__head {
+    text-align: center;
+    padding: 1em 0.2em 0.2em 0.2em;
+    height: 2.8em;
 }
-// .results--after {
-    // max-width: 90vw;
-    // margin: 5vw auto;
-//     background-color: black;
 
-// }
+.results__bread {
+    text-align: left;
+    padding: 1em;
+}
