@@ -2,6 +2,9 @@ async function handleSubmit(event) {
     event.preventDefault()
     console.log("::: Url submitted :::")
 
+    //if any hide previous results 
+    document.getElementById('results').classList.add("results--hidden");
+
     //Add message to user
     document.getElementById('pending').classList.remove("pending--hidden");
 
@@ -52,7 +55,7 @@ async function handleSubmit(event) {
             elementIrony.innerHTML = res.irony;
 
             //render the results and remove message to user
-            document.getElementById('pending').classList.add("results--hidden");
+            document.getElementById('pending').classList.add("pending--hidden");
             document.getElementById('results').classList.remove("results--hidden");
 
         })
