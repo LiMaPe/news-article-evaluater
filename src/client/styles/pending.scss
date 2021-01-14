@@ -1,0 +1,16 @@
+.pending {
+    color: whitesmoke;
+    margin-top: 3em;
+    text-align: center;
+    animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.pending--hidden {
+    display: none;
+}
