@@ -22,45 +22,55 @@ async function handleSubmit(event) {
         })
         .then(res => res.json())
         .then(function(res) {
-            console.log(res)
-            console.log("score tag:", res.score_tag)
-            console.log("subjectivity:", res.subjectivity)
-            console.log("confidence:", res.confidence)
-            console.log("irony:", res.irony)
-
-            //update UI with new data
-            //collect the html elements
-            const elementScore = document.getElementById('score');
-            const elementSubj = document.getElementById('subj');
-            const elementIrony = document.getElementById('irony');
-
-            //set score tag to proper meaning.
-            if(res.score_tag === "NEU") {
-                res.score_tag = "Neutral";
-            } else if(res.score_tag === "P+") {
-                res.score_tag = "Strong Positive";
-            } else if(res.score_tag === "P") {
-                res.score_tag = "Positive";
-            } else if(res.score_tag === "N") {
-                res.score_tag = "Negative";
-            } else if(res.score_tag === "N+") {
-                res.score_tag = "Strong Negative";
-            } else if(res.score_tag === "NONE") {
-                res.score_tag = "Without Sentiment";
+            //make sure status code is OK!
+            if(res.status.code !== "0") {
+                console.log("Error due to respons code:",res.status.code);
+                document.getElementById('pending').classList.add("pending--hidden");
+                alert("Something went wrong! Make sure you enter a valid URL.")
+            } else {
+                console.log(res);
+    
+                //update UI with new data
+                //collect the html elements
+                const elementScore = document.getElementById('score');
+                const elementSubj = document.getElementById('subj');
+                const elementIrony = document.getElementById('irony');
+    
+                //set score tag to proper meaning.
+                if(res.score_tag === "NEU") {
+                    res.score_tag = "Neutral";
+                } else if(res.score_tag === "P+") {
+                    res.score_tag = "Strong Positive";
+                } else if(res.score_tag === "P") {
+                    res.score_tag = "Positive";
+                } else if(res.score_tag === "N") {
+                    res.score_tag = "Negative";
+                } else if(res.score_tag === "N+") {
+                    res.score_tag = "Strong Negative";
+                } else if(res.score_tag === "NONE") {
+                    res.score_tag = "Without Sentiment";
+                }
+    
+                //set the inner html to the result
+                elementScore.innerHTML = res.score_tag;
+                elementSubj.innerHTML = res.subjectivity;
+                elementIrony.innerHTML = res.irony;
+    
+                //render the results and remove message to user
+                document.getElementById('pending').classList.add("pending--hidden");
+                document.getElementById('results').classList.remove("results--hidden");
             }
-
-            //set the inner html to the result
-            elementScore.innerHTML = res.score_tag;
-            elementSubj.innerHTML = res.subjectivity;
-            elementIrony.innerHTML = res.irony;
-
-            //render the results and remove message to user
+        })
+        .catch(err => {
+            console.log("error:", err)
+            //Error message to user
             document.getElementById('pending').classList.add("pending--hidden");
-            document.getElementById('results').classList.remove("results--hidden");
-
+            alert("Something went wrong! Make sure you enter a valid URL.")
         })
     } else {
         console.log("::: Invalid Url, break! :::");
+        //Error message to user
+        alert("Please enter a valid URL and try again")
         return;
     };
 }
